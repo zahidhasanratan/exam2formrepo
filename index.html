@@ -19,6 +19,7 @@
         <div class="col-md-6">
           <div class="card p-4">
             <h2 class="formTitle text-center">Registration Form</h2>
+           
             <form>
               <div class="row mb-3">
                 <div class="col">
@@ -51,20 +52,17 @@
                   placeholder="Confirm Password"
                 />
               </div>
-              <div class="input-group mb-3">
+              <div class="input-group mb-3 d-flex" style="gap: 10px;">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control" style=" width: 70%;"
                   placeholder="Enter your Country"
                 />
-                <button class="btn btn-primary">Find</button>
+                <button class="btn btn-primary btnColor" style="width: 25%;">Find</button>
               </div>
               <div class="card p-3 bg-light">
                 <div class="d-flex">
-                  <div
-                    class="placeholder bg-secondary"
-                    style="width: 80px; height: 80px"
-                  ></div>
+                  <div class="flag"></div>
                   <div class="ms-3">
                     <strong>Bangladesh</strong>
                     <p class="mb-0">Population: 16M</p>
@@ -76,11 +74,12 @@
                 </div>
               </div>
               <div class="d-grid mt-3">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary submitBtn">
                   Submit Data
                 </button>
               </div>
             </form>
+            
           </div>
         </div>
       </div>
