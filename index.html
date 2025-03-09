@@ -1,142 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Registration Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./css/styles.css" />
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="mainContent">
+          <div class="card p-4">
+            <h2 class="formTitle text-center">Registration Form</h2>
 
-    .error-message {
-      color: red;
-      font-size: 0.875em;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card p-4">
-          <h2 class="formTitle text-center">Registration Form</h2>
-
-          <form id="registrationForm">
-            <div class="row mb-3">
-              <div class="col">
-                <input type="text" id="name" class="form-control" placeholder="Enter your name" />
+            <form id="registrationForm">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Enter your name"
+                />
                 <small class="error-message">Name is required</small>
               </div>
-              <div class="col">
-                <input type="email" id="email" class="form-control" placeholder="Enter your email" />
+
+              <div class="mb-3">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
                 <small class="error-message">Email is required</small>
               </div>
-            </div>
-            <div class="mb-3">
-              <input type="password" id="password" class="form-control" placeholder="Enter your password" />
-              <small class="error-message">Password is required</small>
-            </div>
-            <div class="mb-3">
-              <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" />
-              <small class="error-message">Please confirm your password</small>
-            </div>
 
-            <div class="input-group mb-3 d-flex" style="gap: 10px;">
-              <input type="text" id="countryInput" class="form-control" style="width: 70%;" placeholder="Enter your Country" />
-              <button type="button" id="findCountryBtn" class="btn btn-primary btnColor" style="width: 25%;">Find</button>
-            </div>
-            <small class="error-message">Country is required</small>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Enter your password"
+                />
+                <small class="error-message">Password is required</small>
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="form-control"
+                  placeholder="Confirm Password"
+                />
+                <small class="error-message"
+                  >Please confirm your password</small
+                >
+              </div>
 
-            <div class="p-3 bg-light mainCard d-none" id="countryDetails">
-              <div class="d-flex">
-                <div class="flag">
-                  <img id="countryFlag" src="" width="100">
+              <div class="mb-3">
+                <div class="input-group d-flex" style="gap: 10px">
+                  <input
+                    type="text"
+                    id="countryInput"
+                    class="form-control"
+                    placeholder="Enter your Country"
+                  />
+                  <button
+                    type="button"
+                    id="findCountryBtn"
+                    class="btn btn-primary btnColor"
+                  >
+                    Find
+                  </button>
                 </div>
-                <div class="ms-3">
-                  <h5 id="countryName">Bangladesh</h5>
-                  <p>Population: <span id="population"></span></p>
-                  <p>Borders: <span id="borders"></span></p>
-                  <p>Currency: <span id="currency"></span></p>
-                  <p>Capital: <span id="capital"></span></p>
-                  <p>Area: <span id="area"></span> square kilometres</p>
+                <small class="error-message" style="color: red; display: none"
+                  >Please Enter Country Name</small
+                >
+              </div>
+
+              <div class="p-3 FlagBg mainCard d-none" id="countryDetails">
+                <div class="d-flex flagArea">
+                  <div class="flag">
+                    <img id="countryFlag" src="" width="100" />
+                  </div>
+                  <div class="details">
+                    <h5 id="countryName">Bangladesh</h5>
+                    <p>Population: <span id="population"></span></p>
+                    <p>Borders: <span id="borders"></span></p>
+                    <p>Currency: <span id="currency"></span></p>
+                    <p>Capital: <span id="capital"></span></p>
+                    <p>Area: <span id="area"></span> square kilometres</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="d-grid mt-3">
-              <button type="submit" class="btn btn-primary submitBtn">Submit Data</button>
-            </div>
-          </form>
-
+              <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-primary submitBtn">
+                  Submit Data
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent form submission
-
-      let isValid = true;
-
-      // Get input fields
-      const fields = ["name", "email", "password", "confirmPassword", "countryInput"];
-      
-      fields.forEach((field) => {
-        let input = document.getElementById(field);
-        let errorMessage = input.nextElementSibling;
-
-        if (input.value.trim() === "") {
-          errorMessage.style.display = "block";
-          isValid = false;
-        } else {
-          errorMessage.style.display = "none";
-        }
-      });
-
-      if (isValid) {
-        alert("Form submitted successfully!");
-        this.submit(); // Submit the form if validation passes
-      }
-    });
-
-    // Find Country API
-    document.getElementById("findCountryBtn").addEventListener("click", function () {
-      let countryName = document.getElementById("countryInput").value.trim();
-
-      if (countryName === "") {
-        alert("Please enter a country name!");
-        return;
-      }
-
-      let apiUrl = `https://restcountries.com/v3.1/name/${countryName}`;
-
-      fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("Country not found");
-          }
-          return response.json();
-        })
-        .then(data => {
-          let country = data[0];
-
-          document.getElementById("countryFlag").src = country.flags.png;
-          document.getElementById("countryName").textContent = country.name.common;
-          document.getElementById("population").textContent = country.population.toLocaleString();
-          document.getElementById("borders").textContent = country.borders ? country.borders.join(", ") : "No borders";
-          document.getElementById("currency").textContent = Object.values(country.currencies)[0].name;
-          document.getElementById("capital").textContent = country.capital ? country.capital[0] : "N/A";
-          document.getElementById("area").textContent = country.area.toLocaleString(); // Square kilometres
-
-          document.getElementById("countryDetails").classList.remove("d-none");
-        })
-        .catch(error => {
-          alert("Country not found. Please enter a valid country name.");
-        });
-    });
-  </script>
-</body>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
